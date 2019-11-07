@@ -16,23 +16,21 @@ public class Tree<T> {
 	}
 
 	public void train(ArrayList<T> input) {
-		this.alphabets = input;
 		totalInputTokens = input.size();
 
 		for (int i = 0; i < L; i++) {
 			for (int j = 0; j < input.size() - i; j++) {
 				ArrayList<T> curSequence = new ArrayList<T>(input.subList(j, j + i));
 				Node<T> newNodes = new Node<T>(curSequence);
-				// calculate your pvalue here: counts / input.size() – ( tokenSequence.size() -1
-				
-				double totalSum = totalInputTokens - newNodes.tokenSequence.size() - 1;
-				double val = countNode(newNodes, totalInputTokens) / totalSum;
-				newNodes.setProb(val);
-				if (val >= Pmin) {
-					root.addNode(newNodes);
-				}
+				// this is code for the easier way to do this
+//				double totalSum = totalInputTokens - newNodes.tokenSequence.size() - 1;
+//				double val = countNode(newNodes, totalInputTokens) / totalSum;
+//				if (val >= Pmin) {
+				root.addNode(newNodes);
+//				}
 			}
 		}
+		root.pMin(totalInputTokens, Pmin);
 	}
 
 	void print() {
@@ -50,7 +48,5 @@ public class Tree<T> {
 		}
 		return counter;
 	}
-
-
 
 }

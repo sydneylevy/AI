@@ -29,7 +29,12 @@ public class pstMain extends PApplet {
 	MidiFileToNotes midiNotes; //read a midi file
 	
 	Tree<Character> tree1 = new Tree<Character>(4, 0.1);
-	Tree<Character> tree3 = new Tree<Character>(4, 0.15);
+	Tree<Character> tree5 = new Tree<Character>(4, 0.15);
+	Tree<Character> tree3 = new Tree<Character>(4, 0.1);
+	Tree<Character> tree7 = new Tree<Character>(4, 0.1);
+	Tree<Character> tree6 = new Tree<Character>(4, 0.15);
+	Tree<Character> tree8 = new Tree<Character>(4, 0.15);
+
 	
 	Tree<Integer> tree4 = new Tree<Integer>(4, 0.1);
 	Tree<Integer> tree2 = new Tree<Integer>(4, 0.15);
@@ -89,7 +94,7 @@ public class pstMain extends PApplet {
 			e.printStackTrace();
 		}
 		return filePath;
-	}
+	} 
 
 	//this function is not currently called. you may call this from setup() if you want to test
 	//this just plays the midi file -- all of it via your software synth. You will not use this function in upcoming projects
@@ -132,16 +137,16 @@ public class pstMain extends PApplet {
 		if (key == '2') {
 			Character[] acad = {'a', 'c', 'a', 'd', 'a', 'a', 'c', 'b', 'd', 'a'} ; 
 			ArrayList <Character> data2 = new ArrayList<Character> (Arrays.asList(acad));
-			tree1.train(data2);
+			tree3.train(data2);
 			System.out.println("ACADAACBDA");
-			tree1.print();
+			tree3.print();
 			}
 		if (key == '3') {
 			Character[] abcc = {'a', 'b', 'c', 'c', 'c', 'd', 'a', 'a', 'd', 'c', 'd', 'a', 'a', 'b', 'c', 'a', 'd', 'a', 'd'};
 			ArrayList <Character> data3 = new ArrayList<Character> (Arrays.asList(abcc));
-			tree1.train(data3);
+			tree5.train(data3);
 			System.out.println("ABCCCDAADCDAABCADAD");
-			tree1.print();
+			tree5.print();
 		}
 		if (key == '4') {
 			tree2.train(midiNotes.getPitchArray());
@@ -152,23 +157,23 @@ public class pstMain extends PApplet {
 		if (key == '5') {
 			Character[] abra = {'a', 'b', 'r', 'a', 'c', 'a', 'd', 'a', 'b', 'r', 'a'} ; 
 			ArrayList <Character> data1 = new ArrayList<Character> (Arrays.asList(abra));
-			tree3.train(data1);
+			tree6.train(data1);
 			System.out.println("ABRACADABRA");
-			tree3.print();
+			tree6.print();
 			}
 		if (key == '6') {
 			Character[] acad = {'a', 'c', 'a', 'd', 'a', 'a', 'c', 'b', 'd', 'a'} ; 
 			ArrayList <Character> data2 = new ArrayList<Character> (Arrays.asList(acad));
-			tree3.train(data2);
+			tree7.train(data2);
 			System.out.println("ACADAACBDA");
-			tree3.print();
+			tree7.print();
 			}
 		if (key == '7') {
 			Character[] abcc = {'a', 'b', 'c', 'c', 'c', 'd', 'a', 'a', 'd', 'c', 'd', 'a', 'a', 'b', 'c', 'a', 'd', 'a', 'd'};
 			ArrayList <Character> data3 = new ArrayList<Character> (Arrays.asList(abcc));
-			tree3.train(data3);
+			tree8.train(data3);
 			System.out.println("ABCCCDAADCDAABCADAD");
-			tree3.print();
+			tree8.print();
 		}
 		if (key == '8') {
 			tree4.train(midiNotes.getPitchArray());
