@@ -77,9 +77,13 @@ public class Node<T> {
 		if ((this.tokenSequence.size() != 0) && val < pMin) {
 			remove = true; 
 		}
+		
 		else {
-			for (int i = children.size() - 1; i >0; i --) {
+			//start at the end of each array and go to the front 
+			for (int i = children.size() - 1; i > 0; i --) {
+				
 				if(children.get(i).pMin(total, pMin)) {
+					//remove the current node including children 
 					children.remove(children.get(i));
 				}
 			}
